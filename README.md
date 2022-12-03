@@ -1,5 +1,8 @@
 # dbs_hackathon_2022_web_app
 
+## Link to frontend repository:
+https://github.com/Ignatiusgoh/DBS_React_1
+
 ## Install Instructions (1st time)
 1) This is a NodeJS project and therefore make sure you have NodeJS downloaded and installed. (https://nodejs.org/en/download/)
 2) Run ```npm ci``` to install / update all local dependencies required for the project.
