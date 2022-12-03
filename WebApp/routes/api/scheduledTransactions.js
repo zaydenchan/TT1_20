@@ -58,3 +58,11 @@ router.post("/insertScheduledTransactions", async (req, res) => {
 })
 
 module.exports = router
+
+// {
+//     "AccountID": 111,
+//     "ReceivingAccountID": 222,
+//     "Date": "2022-11-08T04:00:00.000Z",
+//     "TransactionAmount": 111.11,
+//     "Comment": "Pocket Money"
+// }
