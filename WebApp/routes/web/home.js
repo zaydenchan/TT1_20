@@ -5,6 +5,7 @@ var passport            = require("passport")
 var User                = require("../../models/user")
 const Product           = require("../../models/product")
 var ensureAuthenticated = require("../../authentication/authentication").ensureAuthenticated
+var ObjectId            = require("mongodb").ObjectId
 
 var router = express.Router()
 
@@ -228,6 +229,7 @@ router.post
         console.log("passed mandatory field checks")
 
         //All mandatory checks cleared, proceed with account registeration
+        var userID              = new ObjectId()
         var email               = request.body.email
         var firstName           = request.body.firstname
         var lastName            = request.body.lastname
@@ -241,6 +243,7 @@ router.post
         var newUser = new User
         (
             {
+                userID          : userID,
                 username        : username,
                 password        : password,
                 firstname       : firstName,

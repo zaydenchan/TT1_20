@@ -1,13 +1,14 @@
 var bcrypt      = require("bcryptjs")
 var mongoose    = require("mongoose")
 
+
 const SALT_FACTOR = 10
 
 //Store user credentials
 var userSchema = mongoose.Schema
 (
     {
-        userID                      : {type: Number , required  : false  , unqiue: true                 },
+        userID                      : {type: String , required  : true  , unqiue: true                 },
         username                    : {type: String , required  : false  , unique: false                },
         password                    : {type: String , required  : true                                  },
         firstname                   : {type: String , required  : true                                  },
@@ -53,13 +54,11 @@ userSchema.pre
             }
         )
 
-        //Generate incremental UserID
-        var sno = 1;
+        //Generate unique UserID
         var user = this;
         const users = await User.find({});
         if(users){
-            sno = users.length + 1;
-            user.userID = sno;  
+            // user.userID = new ObjectId()  
             console.log("USER ID CREATED: " + user.userID)
         }
 
