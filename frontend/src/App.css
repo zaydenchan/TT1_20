@@ -1,0 +1,235 @@
+.balance {
+  background-color: #ec1d25;
+  color: white;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 15px;
+  box-shadow: 0px 10px 14px -4px rgba(0, 0, 0, 0.75);
+  border-bottom: 5px solid black;
+  float: right;
+}
+
+.totalBalance {
+  padding-right: 10%;
+}
+
+.accBalance {
+  padding-left: 10%;
+}
+
+.dropbtn {
+  background-color: black;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #ec1d25;}
+
+.dropdown{
+  box-shadow: 8px 8px 6px #888888;
+  border-radius: 5px;
+  
+}
+
+.userimage{
+  border-radius: 50%;
+  background-color: #ec1d25;
+}
+
+/* .firstName{
+  display: inline-block
+} */
+
+
+.Name{
+  display: flex;
+  /* justify-content: left; */
+}
+
+.lastName{
+  margin-left: 0.5%;
+}
+
+.info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 10%;
+  /* margin: auto; */
+  flex-direction: column;
+  background-color: #ec1d25;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 14px -4px rgba(0, 0, 0, 0.75);
+  border-bottom: 5px solid black;
+  color: white;
+}
+
+.accInfo {
+  margin-left: 20px;
+  margin-top: 150px;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  }
+
+.HeaderScheduleTransactions{
+  background-color: #ec1d25;
+  color: white;
+  border-color: white;
+  padding: 10px 10px 10px 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.SchedulePopup{
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  justify-items: auto;
+  align-items: center;
+  background-color: black;
+
+}
+
+.form--input{
+  margin: 10px;
+  width: 80%;
+  height: 30px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.form--input--comment{
+  margin: 10px;
+  height: 60px;
+  width: 80%;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.ScheduleTransactionsButton{
+  display: flex;
+  width: 40px;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 30px;
+
+}
+
+.ScheduleTransactionsCloseButton{
+  border-radius: 5px;
+  margin-right: 70px;
+  background-color: #ec1d25;
+  font-size: 20px;
+  color: white;
+  padding: 10px 24px;
+}
+
+.ScheduleTransactionsSubmitButton{
+  border-radius: 5px;
+  background-color: #ec1d25;
+  color: white;
+  font-size: 20px;
+  padding: 10px 24px;
+
+}
+
+html {
+  font-size: 16px;
+
+  /* If you set different base font, you might need more tweak */
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  background-color: rgb(242, 245, 247);
+  color: #4d5068;
+  font-family: 'Open Sans', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.content-body {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url("https://images.unsplash.com/flagged/photo-1562503542-2a1e6f03b16b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+
+
+.form-wrapper {
+  width: 350px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+
+.link-continue {
+  background-color: #ff3333;
+  display: flex;
+  padding: 0.7em;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 15px;
+  border: 1px solid #e5e7ec;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
