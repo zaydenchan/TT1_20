@@ -1,13 +1,20 @@
 var express             = require("express")
+var BankAccount         = require("../../../models/bankAccount")
 
 var router = express.Router()
 
 router.get
 (
-    "/",
-    function(request, response)
+    "/:email",
+    async function(request, response)
     {
-        
+        email = request.params.email;
+        console.log("Email: " + email)
+        const bankaccounts = await BankAccount.find({
+            Email : email
+        });
+        if(bankaccounts)
+            console.log(bankaccounts);
         response.render("private/dashboard")
     }
 )
