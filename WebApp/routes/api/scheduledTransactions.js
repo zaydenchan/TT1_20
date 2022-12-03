@@ -22,12 +22,11 @@ router.get("/getScheduledTransactions/:accountId", async (req, res) => {
 
 // Delete scheduled transactions from the Scheduled Transactions table
 router.delete("/deleteScheduledTransaction", async (req, res) => {
-  console.log(req.body)
 	try {
-		// const transactions = await ScheduledTransaction.deleteOne({
-		// 	TransactionID: req.body.transactionId,
-		// 	AccountID: req.body.accountId,
-		// });
+    await ScheduledTransaction.deleteOne({
+			TransactionID: req.body.transactionId,
+			AccountID: req.body.accountId,
+		});
 		res.json({
       message: "Delete successful!"
     });
