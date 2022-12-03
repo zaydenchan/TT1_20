@@ -241,15 +241,15 @@ router.post
         var newUser = new User
         (
             {
-                Username        : username,
+                username        : username,
                 password        : password,
-                Firstname       : firstName,
-                Lastname        : lastName,
+                firstname       : firstName,
+                lastname        : lastName,
                 email           : email,
-                Address         : address,
+                address         : address,
                 referalBy       : referalBy,
                 myReferalCode   : myReferalCode,
-                OptIntoPhyStatements : optInPhyStatements
+                optIntoPhyStatements : optInPhyStatements
             }
         )
         newUser.save(next)
