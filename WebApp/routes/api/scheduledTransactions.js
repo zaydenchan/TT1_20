@@ -10,18 +10,16 @@ router.get("/", function (request, response) {
 })
 
 // Return a list of transaction details of a user from the Scheduled Transactions table
-router.get("/getScheduledTransactions/:accountId", async (req, res) => {
-  try {
-    const transactions = await ScheduledTransaction.find({
-      AccountID: req.params.accountId
-    })
-    res.json(transactions)
-  } catch (err) {
-    res.status(500).send({
-      message: err.message || "An error has occurred."
-    })
-  }
-})
+router.get("/getScheduledTransactions", async (req, res) => {
+	try {
+		const transactions = await ScheduledTransaction.find();
+		res.json(transactions);
+	} catch (err) {
+		res.status(500).send({
+			message: err.message || "An error has occurred.",
+		});
+	}
+});
 
 // Delete scheduled transactions from the Scheduled Transactions table
 router.delete("/deleteScheduledTransaction", async (req, res) => {
