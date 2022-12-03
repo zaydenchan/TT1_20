@@ -1,0 +1,153 @@
+html {
+  font-size: 16px;
+
+  /* If you set different base font, you might need more tweak */
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  background-color: rgb(242, 245, 247);
+  color: #4d5068;
+  font-family: 'Open Sans', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.content-body {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url("https://images.unsplash.com/flagged/photo-1562503542-2a1e6f03b16b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+@media screen and (max-width: 640px) {
+  .content-body {
+    background-position-y: top;
+    background-size: 250px;
+    margin-bottom: 5em;
+
+    /* tweak for footer fixed -- you don't need this */
+  }
+}
+
+.form-wrapper {
+  width: 350px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 640px) {
+  .form-wrapper {
+    margin-top: 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .form-wrapper {
+    width: 90%;
+  }
+}
+
+.bg-white {
+  width: 100%;
+  background-color: #fff;
+  border: 2px solid #e5e7ec;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  padding: 1em;
+  text-align: center;
+}
+
+.bg-grey {
+  width: 100%;
+  background-color: #f8fafc;
+  border: 2px solid #e5e7ec;
+  border-top: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 1em;
+  text-align: center;
+}
+
+img {
+  width: 130px;
+  padding-bottom: 0.2em;
+}
+.text-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.field-group {
+  border: 0;
+  padding: 0.35em 0 0.625em 0;
+  text-align: left;
+  position: relative;
+}
+
+.label {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  padding-bottom: 5em;
+}
+
+.input {
+  padding: 0.5em 0 0.5em 1em;
+  width: 100%;
+  border: 1px solid #e5e7ec;
+  border-radius: 5px;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+.btn-submit {
+  background-color: #000000;
+  color: #fff;
+  font-size: 15px;
+  padding: 0.7em;
+  border-radius: 5px;
+  outline: 0;
+  border: 0;
+  width: 100%;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.link-forgot {
+  position: absolute;
+  right: 10px;
+  margin-top: 0.5em;
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: #ff3333;
+  z-index: 2;
+}
+
+.link-register {
+  background-color: #ff3333;
+  display: flex;
+  padding: 0.7em;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 15px;
+  border: 1px solid #e5e7ec;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+.link-about > a {
+  color: #4d5068;
+  text-decoration: underline;
+}
