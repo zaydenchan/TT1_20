@@ -41,13 +41,13 @@ router.delete("/deleteScheduledTransaction", async (req, res) => {
 
 // Insert transaction details of a user into the Scheduled Transactions table
 router.post("/insertScheduledTransactions", async (req, res) => {
-  console.log(req.body)
+	console.log(req.body)
   try {
     const transaction = await ScheduledTransaction.create({
       TransactionID: new ObjectId(),
       AccountID: req.body.AccountID,
       ReceivingAccountID: req.body.ReceivingAccountID,
-      Date: req.body.Date,
+      Date: new Date().toISOString(),
       TransactionAmount: req.body.TransactionAmount,
       Comment: req.body.Comment
     })
