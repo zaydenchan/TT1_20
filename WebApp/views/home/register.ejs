@@ -1,0 +1,74 @@
+<%- include ("../_partials/_header.ejs"); -%>
+<%- include ("../_partials/_navbar.ejs"); -%>
+<%- include ("../_partials/_alerts.ejs"); -%>
+
+<div class="container">
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="col-md-4" >
+            <div class="panel panel-default">
+                <br />
+                <div class="panel-heading">
+                    <h3>Register</h3>
+                </div>
+                <br />
+                <div class="panel-body">
+                    <form class="form-signin" method="POST" action="/register">
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><img src="/icons/envelope.svg"/></span>
+                            <input type="email" class="form-control" placeholder="Email Address" name="email"
+                                aria-describedby="basic-addon1">
+                        </div>
+                        <br />
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><img src="/icons/person.svg"/></span>
+                            <input type="firstName" class="form-control" placeholder="First Name" name="firstName"
+                                aria-describedby="basic-addon1">
+                        </div>
+                        <br />
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><img src="/icons/person.svg"/></span>
+                            <input type="lastName" class="form-control" placeholder="Last Name" name="lastName"
+                                aria-describedby="basic-addon1">
+                        </div>
+                        <br />
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><img src="/icons/gender-ambiguous.svg"/></span>
+                            <input type="gender" class="form-control" placeholder="Gender" name="gender"
+                                aria-describedby="basic-addon1">
+                        </div>
+                        <br />
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><img src="/icons/geo-alt.svg"/></span>
+                            <input type="postalCode" class="form-control" placeholder="Postal Code" name="postalCode"
+                                aria-describedby="basic-addon1">
+                        </div>
+                        <br />
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><img src="/icons/person.svg"/></span>
+                            <input type="text" class="form-control" placeholder="Username" name="username" aria-describedby="basic-addon1">
+                        </div>
+                        <br />
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><img src="/icons/lock.svg"/></span>
+                            <input type="password" name="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+                        </div>
+                        <br />
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><img src="/icons/lock.svg"/></span>
+                            <input type="password" class="form-control" placeholder="Retype Password" aria-describedby="basic-addon1" name="repassword">
+                        </div>
+                        <br />
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><img src="/icons/pencil-square.svg"/></span>
+                            <input type="referalCode" class="form-control" placeholder="Referal Code" aria-describedby="basic-addon1" name="referalCode">
+                        </div>
+                        <br />
+                        <input type="submit" class="btn btn-outline-secondary" value="Register" />
+        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include ("../_partials/_footer.ejs"); -%>

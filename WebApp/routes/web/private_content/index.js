@@ -1,0 +1,11 @@
+var express = require("express")
+var router  = express.Router()
+var ensureAuthenticated = require("../../../authentication/authentication").ensureAuthenticated
+
+router.use(ensureAuthenticated)
+
+router.use("/admin" , require("./admin")    )
+router.use("/mail"  , require("./mail")     )
+router.use("/cart"  , require("./cart")     )
+
+module.exports = router

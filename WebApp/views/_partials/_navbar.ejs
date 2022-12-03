@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="/assets/DBS_Bank_logo.png" alt="Logo" width="140" height="49.2" class="d-inline-block align-text-mid">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="d-flex ms-auto mb-2 mb-lg-0" role="search">
+          <input class="form-control ms-auto" type="search" placeholder="Search" aria-label="Search">
+          <span style="padding: 0px 1px"></span>
+          <button class="btn btn-outline-success" type="submit">
+            <img src="/icons/search.svg" alt="Search" class="d-inline-block align-text-mid">
+          </button>
+        </form>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item" style="padding: 0px 5px">
+            <a class="nav-link active" aria-current="page" href="/home">
+              <img src="/icons/house-fill.svg" alt="Home" width="25" height="25" class="d-inline-block align-text-mid">
+            </a>
+          </li>
+          <li class="nav-item" style="padding: 0px 5px">
+            <a class="nav-link" href="/about">
+              <img src="/icons/info-circle-fill.svg" alt="About" width="25" height="25" class="d-inline-block align-text-mid">
+            </a>
+          </li>
+          <% if(currentUser != null) { %>
+            <li class="nav-item" style="padding: 0px 5px">
+              <a class="nav-link" href="/private/cart/cart">
+                <img src="/icons/cart-fill.svg" alt="My Cart" width="25" height="25" class="d-inline-block align-text-mid">
+              </a>
+            </li>
+            <li class="nav-item dropdown" style="padding: 0px 5px">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="/icons/list.svg" alt="<%= currentUser.username%>" width="25" height="25" class="d-inline-block align-text-mid">
+              </a>
+              <ul class="dropdown-menu" style="right: 0 !important; left: auto !important">
+                <li>
+                  <a class="dropdown-item" href="/private/profile">
+                    <img src="/icons/person-circle.svg" style="padding: 0px 10px 5px 0px" class="d-inline-block align-text-mid">
+                    My Profile
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#!">
+                    <img src="/icons/bag.svg" style="padding: 0px 10px 5px 0px" class="d-inline-block align-text-mid">
+                    My Purchases
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/private/mail">
+                    <img src="/icons/envelope.svg" style="padding: 0px 10px 5px 0px" class="d-inline-block align-text-mid">
+                    My Messages
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#!">
+                    <img src="/icons/book.svg" style="padding: 0px 10px 5px 0px" class="d-inline-block align-text-mid">
+                    Resources
+                  </a>
+                </li>
+                <% if(currentUser.isAdmin == true) { %>
+                  <li>
+                    <a class="dropdown-item" href="/private/admin/<%=currentUser._id%>">
+                      <img src="/icons/tools.svg" style="padding: 0px 10px 5px 0px" class="d-inline-block align-text-mid">
+                      Admin
+                    </a>
+                  </li>
+                <% } %>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <a class="dropdown-item" href="/private/logout">
+                    <img src="/icons/power.svg" style="padding: 0px 10px 5px 0px" class="d-inline-block align-text-mid">
+                    Log Out
+                  </a>
+                </li>
+              </ul>
+            </li>
+          <% } else if (!locals.offNavOptions) { %>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/login">Log In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/register">Register</a>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>

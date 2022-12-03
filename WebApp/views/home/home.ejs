@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=((locals.title && locals.title.length > 0) ? locals.title : "DBS E-Commerce")%></title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="/fonts/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<style>
+  html {
+    height: 100%;
+    color: rgb(255, 255, 255);
+    line-height: 1.8;
+    font-weight: bolder;
+  }
+  /* Create a Parallax Effect */
+  .bgimg-1 {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
+  /* First image (Logo. Full height) */
+  .bgimg-1 {
+      background-image: url("../../assets/DBS_SG_Facade_4.jpg");
+      height: 90vh; /* For 100% screen height */
+      width:  100%; /* For 100% screen width */
+  }
+
+  .viewCollectionsBtn {
+      opacity: 0.75;
+      width: 30%;
+      height: 7%;
+      margin-top: 35%;
+      margin-left: 35%;
+      font-size: 35px;
+      padding: 0;
+      text-align: center;
+      font-family:serif;
+  }
+
+  /* Turn off parallax scrolling for tablets and phones */
+  @media only screen and (max-device-width: 1600px) {
+      .bgimg-1
+      {
+          background-attachment: scroll;
+          height: 90vh; /* For 100% screen height */
+          width:  100%; /* For 100% screen width */
+      }
+    }
+</style>
+
+<body>
+<%- include ("../_partials/_navbar.ejs"); -%>
+<%- include ("../_partials/_alerts.ejs"); -%>
+
+<!--Background image-->
+<div class="bgimg-1" id="home">
+  <a href="/allProducts" type="button" class="btn btn-danger btn-lg viewCollectionsBtn">View Collections</a>
+</div>
+
+<div class="container">
+
+    <h1 class="title">Categories</h1>
+    <div id="app" class="container" style="padding: 40px 80px; display: flex; flex-wrap: wrap; justify-content: center">
+      <card data-image="https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/Old_Electronics_hero_1.jpg">
+        <h1 slot="header">Electronics</h1>
+        <p slot="content">We have products ranging from computers & computer accessories to audio systems that will revolutionalize your leisure.</p>
+      </card>
+      <card data-image="https://cf.shopee.sg/file/cf4fe57a391350b48b593ad9ef11576f">
+        <h1 slot="header">Jewellery</h1>
+        <p slot="content">We are changing how you shop for fine gold and gems jewellery</p>
+      </card>
+      <card data-image="https://cdn.luxe.digital/media/2019/12/16162209/best-men-online-shopping-jcrew-luxe-digital.jpg">
+        <h1 slot="header">Men's clothing</h1>
+        <p slot="content">Men's Apparel From Top Brands</p>
+      </card>
+      <card data-image="https://n.nordstrommedia.com/id/99b31bad-4568-4e6c-a840-5dc62e5ce9c1.jpeg?h=417&w=1334">
+        <h1 slot="header">Women's clothing</h1>
+        <p slot="content">Women's Apparel From Top Brands</p>
+      </card>
+    </div>
+
+</div>
+
+<%- include ("../_partials/_footer.ejs"); -%>

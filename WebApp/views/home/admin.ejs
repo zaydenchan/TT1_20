@@ -1,0 +1,175 @@
+<%- include ("../_partials/_header.ejs"); -%>
+<%- include ("../_partials/_navbar.ejs"); -%>
+<%- include ("../_partials/_alerts.ejs"); -%>
+<div class="d-flex align-items-center justify-content-center">
+    <div class="panel panel-default">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-sm-0 h1 fs-2">
+              <img src="/icons/person-workspace.svg" style="padding: 0px 10px 5px 0px" width="50" height="50" />
+              Admin
+            </span>
+        </div>
+
+        <style>
+            table,
+            th,
+            td {
+                padding: 10px;
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        </style>   
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-1 col-md-10">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col col-sm-3 col-xs-12">
+                                    <h4 class="title">List of access code </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body table-responsive">
+                            <table id="accessCodeTable" class="table" width="100%" cellspacing="0">
+                                <thead>
+                                  <tr>
+                                      <th>No.</th>
+                                      <th>Access Code</th>
+                                      <th>Used</th>
+                                      <th>Edit</th>
+                                      <th>Remove</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <%
+                                  if(data.accessCodeList.length!=0){
+                                  var i=1;
+                                  data.accessCodeList.forEach(function(list){
+                                  %>
+                                  <tr>
+                                      <td><%=i; %></td>
+                                      <td><%=list.accessCode %></td>
+                                      <td><%=list.isUse %></td>
+                                      <td><a href="/private/admin/accessCodeModify/edit/<%=list.id%>/<%=currentUser._id%>">Edit</a></td>
+                                      <td><a href="/private/admin/accessCodeModify/remove/<%=list.id%>/<%=currentUser._id%>">Remove</a></td>
+                                  </tr>
+                                  <%  i++; }) %>
+                                  <% } else{ %>
+                                      <tr>
+                                          <td colspan="7">No Data Found</td>
+                                      </tr>
+                                  <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="row">
+                                <%
+                                var codeListLength = data.accessCodeList.length;
+                                var showValueCode = (codeListLength >= 5) ? 5 : codeListLength;
+                                %>
+                                <div class="col col-sm-6 col-xs-6">showing <b><%=codeListLength;%></b> entries</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-1 col-md-10">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col col-sm-3 col-xs-12">
+                                    <h4 class="title">Add Access Code</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body table-responsive">
+                            <form action="/private/admin/addaccesscode/<%=currentUser._id%>" method="POST">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Access Code no." id="inputAccessCode" name="accessCode">
+                                </div>
+                                <div class="navbar-brand mb-sm-0 h1 fs-2">
+                                    <input type="submit" class="btn btn-outline-dark" value="Add" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-1 col-md-10">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col col-sm-3 col-xs-12">
+                                    <h4 class="title">List of users </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body table-responsive">
+                            <table id = "userTable" class="table" width="100%" cellspacing="0">
+                                <thead>
+                                  <tr>
+                                    <th>Item No.</th>
+                                    <th>Email</th>
+                                    <th>Username</th>
+                                    <th>Space Name</th>
+                                    <th>Admin</th>
+                                    <th>Created Date</th>
+                                    <th>Edit</th>
+                                    <th>Remove</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <%
+                                  if(data.userList.length!=0){
+                                  var i=1;
+                                  data.userList.forEach(function(list){
+                                  %>
+                                  <tr>
+                                      <td><%=i; %></td>
+                                      <td><%=list.email %></td>
+                                      <td><%=list.username %></td>
+                                      <td><%=list.spaceName %></td>
+                                      <td><%=list.isAdmin %></td>
+                                      <td><%=list.createdAt %></td>
+                                      <td><a href="/private/admin/userModify/edit/<%=list.id%>/<%=currentUser._id%>">Edit</a></td>
+                                      <td><a href="/private/admin/userModify/remove/<%=list.id%>/<%=currentUser._id%>">Remove</a></td>
+                                  </tr>
+                                  <%  i++; }) %>
+                                  <% } else{ %>
+                                      <tr>
+                                          <td colspan="7">No Data Found</td>
+                                      </tr>
+                                  <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="row">
+                                <%
+                                var userListLength = data.userList.length;
+                                var showValueUser = (userListLength >= 5) ? 5 : userListLength;
+                                %>
+                                <div class="col col-sm-6 col-xs-6">showing <b><%=userListLength;%></b> entries</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include ("../_partials/_footer.ejs"); -%>

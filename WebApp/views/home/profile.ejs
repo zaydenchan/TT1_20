@@ -1,0 +1,38 @@
+<%- include ("../_partials/_header.ejs"); -%>
+<%- include ("../_partials/_navbar.ejs"); -%>
+<%- include ("../_partials/_alerts.ejs"); -%>
+
+
+<div class="container rounded bg-white">
+  <div class="row">
+    <div class="col-md-3 border-right">
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+          <img class="rounded-circle mt-5" width="150px" src="<%=(currentUser.profilePic ? '/' + locals.currentUser.profilePic : 'https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg')%>">
+          <br /><span class="font-weight-bold"><%=currentUser.username%></span>
+        </div>
+    </div>
+    <div class="col-md-5 border-right">
+        <div class="p-3 py-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="text-right">Profile Settings</h4>
+            </div>
+            <form action="/api/users/updateprofile" method="POST" enctype="multipart/form-data">
+              <div class="form-group" style="padding:2% 0% 0% 0%">
+                  <div class="col-md-12"><label class="labels">Username</label><input type="text" class="form-control" placeholder="Username" name="username" value="<%=currentUser.username%>"></div>
+                </div>
+              <div class="form-group" style="padding:2% 0% 0% 0%">
+                <div class="col-md-12"><label class="labels">Email Address</label><input type="text" class="form-control" placeholder="Email Address" name="email" value="<%=currentUser.email%>"></div>
+              </div>
+              <div class="form-group" style="padding:2% 0% 0% 0%">
+                <div class="col-md-12"><label class="labels">Profile Pic</label><input type="file" class="form-control" placeholder="Profile Pic" name="profilePic"></div>
+              </div>
+              <div class="form-group text-center" style="padding:5% 0% 0% 0%">
+                <button class="btn btn-primary profile-button" type="submit" role="button" href="#">Update Profile</button>
+              </div>
+            </form>
+        </div>
+    </div>
+  </div>
+</div>
+
+<%- include ("../_partials/_footer.ejs"); -%>
