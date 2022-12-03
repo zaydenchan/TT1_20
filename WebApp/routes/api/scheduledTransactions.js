@@ -1,6 +1,5 @@
 var ObjectId = require("mongodb").ObjectId
 
-
 const express = require("express")
 const router = express.Router()
 var ScheduledTransaction = require("../../models/ScheduledTransaction")
@@ -25,12 +24,12 @@ router.get("/getScheduledTransactions/:accountId", async (req, res) => {
 
 // Delete scheduled transactions from the Scheduled Transactions table
 router.delete("/deleteScheduledTransaction", async (req, res) => {
-	try {
+  try {
     await ScheduledTransaction.deleteOne({
-			TransactionID: req.body.transactionId,
-			AccountID: req.body.accountId,
-		});
-		res.json({
+      TransactionID: req.body.transactionId,
+      AccountID: req.body.accountId
+    })
+    res.json({
       message: "Delete successful!"
     })
   } catch (err) {
@@ -46,11 +45,11 @@ router.post("/insertScheduledTransactions", async (req, res) => {
   try {
     const transaction = await ScheduledTransaction.create({
       TransactionID: new ObjectId(),
-      AccountID: req.body.accountId,
-      ReceivingAccountID: req.body.receivingAccountId,
-      Date: req.body.date,
+      AccountID: req.body.AccountID,
+      ReceivingAccountID: req.body.ReceivingAccountID,
+      Date: req.body.Date,
       TransactionAmount: req.body.TransactionAmount,
-      Comment: req.body.comment
+      Comment: req.body.Comment
     })
     res.json(transaction)
   } catch (err) {
