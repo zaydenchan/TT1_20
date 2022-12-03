@@ -1,3 +1,6 @@
+var ObjectID = require('mongodb').ObjectID
+
+
 const express = require("express")
 const router = express.Router()
 var ScheduledTransaction = require("../../models/ScheduledTransaction")
@@ -43,6 +46,7 @@ router.post("/insertScheduledTransactions", async (req, res) => {
   console.log(req.body)
   try {
     const transaction = await ScheduledTransaction.create({
+      TransactionID: new ObjectId(),
       AccountID: req.body.accountId,
       ReceivingAccountID: req.body.receivingAccountId,
       Date: req.body.date,
