@@ -3,7 +3,6 @@ var path                = require("path")
 var express             = require("express")
 var passport            = require("passport")
 var User                = require("../../models/user")
-const Product           = require("../../models/product")
 var ensureAuthenticated = require("../../authentication/authentication").ensureAuthenticated
 var ObjectId            = require("mongodb").ObjectId
 
@@ -26,16 +25,6 @@ router.get
     function(request, response)
     {
         response.render("home/home")
-    }
-)
-
-router.get
-(
-    "/private/cart",
-    ensureAuthenticated,
-    function(request, response)
-    {
-        response.render("private/cart")
     }
 )
 

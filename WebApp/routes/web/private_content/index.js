@@ -7,6 +7,5 @@ router.use(ensureAuthenticated)
 router.use("/dashboard" , require("./dashboard"))
 router.use("/admin"     , require("./admin")    )
 router.use("/mail"      , require("./mail")     )
-router.use("/cart"      , require("./cart")     )
 
 module.exports = router
