@@ -5,7 +5,7 @@ var router = express.Router()
 
 router.get
 (
-    "/:email",
+    "/",
     async function(request, response)
     {
         email = request.params.email;

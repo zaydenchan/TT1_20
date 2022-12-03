@@ -49,6 +49,7 @@ app.set("port"          , process.env.PORT || 80)
 app.set("views"         , path.join(__dirname, "views"))
 app.set("view engine"   , "ejs")
 
+app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.json());
 app.use(cookieParser())
 app.use

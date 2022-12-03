@@ -174,6 +174,7 @@ router.post
         //Mandatory field / checks
         if (passedAllMandatoryChecks)
         {
+            console.log(request.body)
             passedAllMandatoryChecks    =   (request.body.email          && 
                                             request.body.firstname      &&
                                             request.body.lastname       &&
