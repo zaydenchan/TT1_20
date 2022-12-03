@@ -102,8 +102,8 @@ router.post
         let removeprofilepic    = false      
         const user              = await User.findById(request.user._id)
         const oldprofilepic     = user.profilePic
-        user.username           = request.body.username
-        user.email              = request.body.email        
+        user.Username           = request.body.Username
+        user.email              = request.body.Email        
 
         if (request.files && request.files.length)
         {

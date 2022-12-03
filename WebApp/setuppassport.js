@@ -54,8 +54,16 @@ module.exports = function()
                             //Check against DB
                             function(error, isMatch)
                             {
-                                if (error)      return done(error)
-                                if (isMatch)    return done(null, user)
+                                if (error)      {
+                                    console.log("ERROR in passport")
+                                    return done(error)
+                                }
+                                if (isMatch){
+                                    console.log("match in passport")
+                                    return done(null, user)
+                                }
+                                if(!isMatch)
+                                    console.log("does not match in passport " + password)
                                 return done(null, false, { message: "Wrong password!" })
                             }
                         )

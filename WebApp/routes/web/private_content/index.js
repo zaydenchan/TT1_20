@@ -4,8 +4,9 @@ var ensureAuthenticated = require("../../../authentication/authentication").ensu
 
 router.use(ensureAuthenticated)
 
-router.use("/admin" , require("./admin")    )
-router.use("/mail"  , require("./mail")     )
-router.use("/cart"  , require("./cart")     )
+router.use("/dashboard" , require("./dashboard"))
+router.use("/admin"     , require("./admin")    )
+router.use("/mail"      , require("./mail")     )
+router.use("/cart"      , require("./cart")     )
 
 module.exports = router

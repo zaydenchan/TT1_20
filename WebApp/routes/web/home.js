@@ -136,7 +136,7 @@ router.post
     (
         "login",
         {
-            successRedirect : "/",
+            successRedirect : "/private/dashboard",
             failureRedirect : "/login",
             failureFlash    : true
         }
@@ -169,17 +169,17 @@ router.post
     {
         let errorMsg                    =   ""
         let passedAllMandatoryChecks    =   true
-        
+
         //Mandatory field / checks
         if (passedAllMandatoryChecks)
         {
-            passedAllMandatoryChecks    =   request.body.email          && 
-                                            request.body.firstName      &&
-                                            request.body.lastName       &&
-                                            request.body.gender         &&
-                                            request.body.postalCode     &&
+            passedAllMandatoryChecks    =   (request.body.email          && 
+                                            request.body.firstname      &&
+                                            request.body.lastname       &&
+                                            request.body.address        &&
                                             request.body.username       &&
-                                            request.body.password
+                                            request.body.password);
+
             errorMsg                    =   passedAllMandatoryChecks    ? 
                                             errorMsg                    : 
                                             "Please fill up all the mandatory fields"
@@ -229,27 +229,27 @@ router.post
 
         //All mandatory checks cleared, proceed with account registeration
         var email               = request.body.email
-        var firstName           = request.body.firstName
-        var lastName            = request.body.lastName
-        var gender              = request.body.gender
-        var postalCode          = request.body.postalCode
+        var firstName           = request.body.firstname
+        var lastName            = request.body.lastname
+        var address             = request.body.address
         var username            = request.body.username
         var password            = request.body.password
         var referalBy           = request.body.referalCode
+        var optInPhyStatements  = request.body.optInPhyStatements
         var myReferalCode       = "000000"
 
         var newUser = new User
         (
             {
-                email           : email,
-                firstName       : firstName,
-                lastName        : lastName,
-                gender          : gender,
-                postalCode      : postalCode,
-                username        : username,
+                Username        : username,
                 password        : password,
+                Firstname       : firstName,
+                Lastname        : lastName,
+                email           : email,
+                Address         : address,
                 referalBy       : referalBy,
-                myReferalCode   : myReferalCode
+                myReferalCode   : myReferalCode,
+                OptIntoPhyStatements : optInPhyStatements
             }
         )
         newUser.save(next)
@@ -258,7 +258,7 @@ router.post
     (
         "login",
         {
-            successRedirect : "/",
+            successRedirect : "/private/dashboard",
             failureRedirect : "/register",
             failureFlash    : true
         }

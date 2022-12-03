@@ -7,18 +7,19 @@ const SALT_FACTOR = 10
 var userSchema = mongoose.Schema
 (
     {
-        email           : {type: String , required  : true  , unique: true          },
-        username        : {type: String , required  : true  , unique: true          },
-        password        : {type: String , required  : true                          },
-        firstName       : {type: String , required  : true                          },
-        lastName        : {type: String , required  : true                          },
-        gender          : {type: String , required  : true                          },
-        myReferalCode   : {type: String , minlength : 6     , maxlength: 12, unique: true  },   // random auto generated
-        referalBy       : {type: String , required  : false                         },          // optional
-        profilePic      : {type: String , required  : false                         },
-        postalCode      : {type: Number , required  : true                          },
-        isAdmin         : {type: Boolean, default   : false                         },
-        createdAt       : {type: Date   , default:Date.now                          }
+        UserID                      : {type: Number , required  : false  , unqiue: true                  },
+        Username                    : {type: String , required  : false  , unique: false                  },
+        password                    : {type: String , required  : true                                  },
+        Firstname                   : {type: String , required  : true                                  },
+        Lastname                    : {type: String , required  : true                                  },
+        email                       : {type: String , required  : true  , unique: true                  },
+        Address                     : {type: String , required  : true                                  },
+        myReferalCode               : {type: String , minlength : 6     , maxlength: 12, unique: true   },   // random auto generated
+        referalBy                   : {type: String , required  : false                                 },   // optional
+        profilePic                  : {type: String , required  : false                                 },
+        OptIntoPhyStatements        : {type: Number , required  : false                                  },
+        isAdmin                     : {type: Boolean, default   : false                                 },
+        createdAt                   : {type: Date   , default:Date.now                                  }
     }
 )
 
@@ -51,6 +52,16 @@ userSchema.pre
                 )
             }
         )
+
+        //Generate incremental UserID
+        var sno = 1;
+        var user = this;
+        const users = await User.find({});
+        if(users){
+            sno = users.length + 1;
+            user.UserID = sno;  
+            console.log("USER ID CREATED: " + user.UserID)
+        }
 
         //Generate random string for newly created member referal code
         isGenerated = false;
