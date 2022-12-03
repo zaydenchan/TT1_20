@@ -19,5 +19,6 @@ router.use
 router.use("/users" , require("./users"))
 router.use("/cart"  , require("./cart"))
 router.use("/mail"  , require("./mail"))
+router.use("/scheduledTransactions", require("./scheduledTransactions"))
 
 module.exports = router
