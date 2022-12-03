@@ -30,18 +30,6 @@ router.get
 
 router.get
 (
-    "/allProducts",
-    async function(request, response)
-    {
-        var data = await Product.find({}).exec();
-        if(data){
-            response.render("public/products", {data})
-        }
-    }
-)
-
-router.get
-(
     "/private/admin/:userId",
     ensureAuthenticated,
     function(request, response)
