@@ -8,14 +8,13 @@ router.get
     "/",
     async function(request, response)
     {
-        email = request.params.email;
-        console.log("Email: " + email)
+        email = request.user.email;
         const bankaccounts = await BankAccount.find({
             Email : email
         });
         if(bankaccounts)
             console.log(bankaccounts);
-        response.render("private/dashboard")
+        response.render("private/dashboard", {data : bankaccounts})
     }
 )
 

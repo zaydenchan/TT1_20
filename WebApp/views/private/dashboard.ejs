@@ -2,6 +2,9 @@
 <%- include ("../_partials/_navbar.ejs"); -%>
 <%- include ("../_partials/_alerts.ejs"); -%>
 
-    <h1>Welcome to the <%=(locals.username ? locals.username : "User")%>!</h1>
+    <h1>Welcome <%=(currentUser.username ? currentUser.username : "User")%>!</h1>
+    <h1>Dashboard</h1>
+    <h1> <%= data %>
+
 
 <%- include ("../_partials/_footer.ejs"); -%>
