@@ -11,6 +11,7 @@ var session         = require("express-session")
 var setUpPassport   = require("./setuppassport")
 var params          = require("./parameters/parameters")
 var storage         = require('./routes/web/uploads')
+const cors = require("cors");
 
 storage.Init_PersistentStorage()
 
@@ -49,6 +50,7 @@ app.set("port"          , process.env.PORT || 80)
 app.set("views"         , path.join(__dirname, "views"))
 app.set("view engine"   , "ejs")
 
+app.use(cors())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.json());
 app.use(cookieParser())
